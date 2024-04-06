@@ -1,8 +1,8 @@
 // screens/GameScreen.js
 import React, { useCallback, useEffect, useState } from 'react';
 import { View, Text, Button, Pressable, StyleSheet } from 'react-native';
-import ShuffledArrayComponent from './component/ShuffledArrayComponent';
-import ShuffledFinalSubmit from './component/ShuffledFinalSubmit';
+import ShuffledFinalSubmit from '../../components/ShuffledFinalSubmit';
+import ShuffledArrayComponent from '../../components/ShuffledArrayComponent';
 
 const GameScreen = ({ navigation, route }) => {
     const { category, clue, data, point } = route.params;

@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { MMKV } from 'react-native-mmkv';
 import { leaderboardData } from '../../customData/CustomJson';
-import ColoredBetweenAsterisk from '../../components/ColoredBetweenAsterisk';
 import { ScrollView } from 'react-native-gesture-handler';
+import ColoredBetweenAsterisk from '../../components/ColoredBetweenAsterisk';
 
 const storage = new MMKV();
 
@@ -35,7 +35,7 @@ const LeaderboardScreen = ({ navigation }) => {
     const handleTryAgain = () => {
         navigation.navigate('CategorySelection');
     };
-
+    console.log(leaderBoard)
     return (
         <View style={styles.container}>
             <View style={styles.mainContainer}>

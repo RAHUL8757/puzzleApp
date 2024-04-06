@@ -5,7 +5,7 @@ import CategorySelectionScreen from './src/screens/categorySelectionScreen/Categ
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import LeaderboardScreen from './src/screens/leaderboardScreen/LeaderboardScreen';
 import ResultScreen from './src/screens/resultScreen/ResultScreen';
-import GameScreen from 'app/screens/gameScreen/GameScreen';
+import GameScreen from './src/screens/gameScreen/GameScreen';
 
 const Stack = createNativeStackNavigator();
 
