@@ -6,7 +6,7 @@ import {
     Button,
     Pressable
 } from 'react-native';
-import { CustomJsonData } from '../customData/CustomJson'
+import { CustomJsonData } from '../../customData/CustomJson'
 
 const CategorySelectionScreen = ({ navigation }) => {
     // State variables

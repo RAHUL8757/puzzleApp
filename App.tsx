@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import CategorySelectionScreen from './src/screens/CategorySelectionScreen';
+import CategorySelectionScreen from './src/screens/categorySelectionScreen/CategorySelectionScreen';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import GameScreen from './src/screens/GameScreen';
-import LeaderboardScreen from './src/screens/LeaderboardScreen';
-import ResultScreen from './src/screens/ResultScreen';
+import LeaderboardScreen from './src/screens/leaderboardScreen/LeaderboardScreen';
+import ResultScreen from './src/screens/resultScreen/ResultScreen';
+import GameScreen from 'app/screens/gameScreen/GameScreen';
 
 const Stack = createNativeStackNavigator();
 
