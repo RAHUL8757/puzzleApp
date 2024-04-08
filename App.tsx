@@ -6,11 +6,40 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import LeaderboardScreen from './src/screens/leaderboardScreen/LeaderboardScreen';
 import ResultScreen from './src/screens/resultScreen/ResultScreen';
 import GameScreen from './src/screens/gameScreen/GameScreen';
+import ChatRoomScreen from './src/screens/chatsScreen/chatRoom';
+import {applyMiddleware, createStore} from 'redux';
+import {persistReducer, persistStore} from 'redux-persist';
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import rootReducer from './src/api/reducers';
+import rootSaga from './src/api/sagas';
+import createSagaMiddleware from 'redux-saga';
 
 const Stack = createNativeStackNavigator();
+const sagaMiddleware = createSagaMiddleware();
+const persistConfig = {
+  key: 'root',
+  storage: AsyncStorage,
+  whitelist: [],
+};
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+const store = createStore(persistedReducer, applyMiddleware(sagaMiddleware));
+const persistor = persistStore(store);
+sagaMiddleware.run(rootSaga);
+const firebaseConfig = {
+  apiKey: 'AIzaSyCIfIvlstUYD0fUjjn-lTOk0fFUB0pM5hg',
+  authDomain: '<your-auth-domain>',
+  projectId: 'puzzle-adcad',
+  storageBucket: '<your-storage-bucket>',
+  messagingSenderId: '1014210961202',
+  appId: '1:1014210961202:android:fb2598ae2c08c181ed412b',
+};
 
 export default function App() {
   return (
+    <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
     <GestureHandlerRootView style={{ flex: 1 }}>
       <NavigationContainer>
         <Stack.Navigator>
@@ -34,8 +63,15 @@ export default function App() {
             component={ResultScreen}
             options={{ headerShown: false }}
           />
+          <Stack.Screen
+            name='ChatsRoom'
+            component={ChatRoomScreen}
+            options={{ title: "Real Time Chat" }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </GestureHandlerRootView>
+    </PersistGate>
+      </Provider>
   );
 }

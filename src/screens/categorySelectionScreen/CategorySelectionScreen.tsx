@@ -4,12 +4,20 @@ import {
     Text,
     StyleSheet,
     Button,
-    Pressable
+    Pressable,
+    Image
 } from 'react-native';
 import { CustomJsonData } from '../../customData/CustomJson'
+import { REQUEST_USERS, getUserRequest } from '../../controler/user.action';
+import {useDispatch, useSelector} from 'react-redux';
+
 
 const CategorySelectionScreen = ({ navigation }) => {
     // State variables
+    const dispatch = useDispatch();
+    const getUpdatedData = useSelector(state => state.getUserReducer);
+    console.log(getUpdatedData?.getStatusData,'getUpdatedData------');
+    
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [data, setData] = useState([]);
     // Function to navigate to the Leaderboard screen
@@ -19,7 +27,9 @@ const CategorySelectionScreen = ({ navigation }) => {
 
     // Function to select a category and set its data
     const onSelectCategory = useCallback(() => {
-          // Select a random animal from the data
+        // Select a random animal from the data
+        // dispatch(getUserRequest());
+       
         const randomAnimal = data[Math.floor(Math.random() * data.length)];
         // Navigate to the Game screen with selected data
         navigation.navigate('Game', {
@@ -31,6 +41,18 @@ const CategorySelectionScreen = ({ navigation }) => {
     }, [data, selectedCategory, navigation]);
     return (
         <View style={styles.container}>
+            <Pressable style={{
+                flexDirection: "row",
+                justifyContent: "flex-end",
+                alignItems: "center"
+            }}
+                onPress={() => {
+                    navigation.navigate('ChatsRoom')
+                }}
+            >
+                <Image source={require('../../assets/images/chatting-message-icon.jpg')} style={{ width: 25, height: 25 }} />
+                <Text>Help</Text>
+            </Pressable>
             <View style={styles.mainContainer}>
                 <View>
                     {/* Title */}
