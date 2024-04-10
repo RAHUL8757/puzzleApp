@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
-import GameScreen from '../src/screens/gameScreen/GameScreen';
+import GameScreen from '../Puzzel_src/screens/gameScreen/GameScreen';
 
 describe('<GameScreen />', () => {
   test('renders correctly with correct category, clue, and data', () => {

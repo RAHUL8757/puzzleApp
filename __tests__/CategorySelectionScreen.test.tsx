@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
-import CategorySelectionScreen from '../src/screens/categorySelectionScreen/CategorySelectionScreen';
+import CategorySelectionScreen from '../Puzzel_src/screens/categorySelectionScreen/CategorySelectionScreen';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 
