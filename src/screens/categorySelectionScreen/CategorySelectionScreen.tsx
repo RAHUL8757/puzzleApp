@@ -8,15 +8,9 @@ import {
     Image
 } from 'react-native';
 import { CustomJsonData } from '../../customData/CustomJson'
-import { REQUEST_USERS, getUserRequest } from '../../controler/user.action';
-import {useDispatch, useSelector} from 'react-redux';
 
 
 const CategorySelectionScreen = ({ navigation }) => {
-    // State variables
-    const dispatch = useDispatch();
-    const getUpdatedData = useSelector(state => state.getUserReducer);
-    console.log(getUpdatedData?.getStatusData,'getUpdatedData------');
     
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [data, setData] = useState([]);
@@ -50,8 +44,8 @@ const CategorySelectionScreen = ({ navigation }) => {
                     navigation.navigate('ChatsRoom')
                 }}
             >
-                <Image source={require('../../assets/images/chatting-message-icon.jpg')} style={{ width: 25, height: 25 }} />
-                <Text>Help</Text>
+                {/* <Image source={require('../../assets/images/chatting-message-icon.jpg')} style={{ width: 25, height: 25 }} />
+                <Text>Help</Text> */}
             </Pressable>
             <View style={styles.mainContainer}>
                 <View>
@@ -74,7 +68,7 @@ const CategorySelectionScreen = ({ navigation }) => {
                     </View>
                 </View>
                 <View style={styles.buttonWithLeadersContainer}>
-                    <Pressable style={styles.categoryBottom} onPress={onSelectCategory}>
+                    <Pressable  style={styles.categoryBottom} onPress={onSelectCategory}>
                         <Text style={styles.startButtonText}>Start</Text>
                     </Pressable>
                     <Pressable onPress={handleLeadersBoard}>
